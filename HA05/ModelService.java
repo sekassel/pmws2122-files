@@ -1,4 +1,4 @@
-package de.uniks.pmws2022.model;
+package de.uniks.pmws2122.model;
 
 public class ModelService {
 
