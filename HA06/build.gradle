@@ -1,0 +1,39 @@
+// ...
+
+repositories {
+    // ...
+
+    // add jcenter()
+    jcenter()
+}
+
+plugins {
+    // ...
+
+    // add javafx plugin in existing plugins
+	id 'org.openjfx.javafxplugin' version '0.0.10'
+
+    // ...
+}
+
+// ...
+
+// add javafx
+javafx {
+    version = '17'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+// ...
+
+dependencies {
+    // ...
+
+    // add testfx
+    testImplementation "org.testfx:testfx-core:4.0.16-alpha"
+	testImplementation "org.testfx:testfx-junit:4.0.16-alpha"
+
+    // ...
+}
+
+// ...
