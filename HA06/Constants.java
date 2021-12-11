@@ -1,4 +1,4 @@
-package de.uniks.pmws2022;
+package de.uniks.pmws2122;
 
 public class Constants {
     // Game constants
