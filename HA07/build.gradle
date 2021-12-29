@@ -1,0 +1,57 @@
+plugins {
+	id 'application'
+	id 'java'
+	// https://plugins.gradle.org/plugin/org.fulib.fulibGradle
+	id 'org.fulib.fulibGradle' version '0.5.0'
+	id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+javafx {
+    version = '17'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+group = 'de.uniks.pmws2122'
+version = '1.0.0'
+
+application {
+	mainClass = 'de.uniks.pmws2122.Launcher'
+}
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+	jcenter()
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.fulib/fulibScenarios
+	fulibScenarios group: 'org.fulib', name: 'fulibScenarios', version: '1.7.0'
+
+	// https://mvnrepository.com/artifact/org.fulib/fulibTools
+	testImplementation group: 'org.fulib', name: 'fulibTools', version: '1.5.1'
+
+	// https://mvnrepository.com/artifact/org.fulib/fulibTables
+	testImplementation group: 'org.fulib', name: 'fulibTables', version: '1.4.0'
+
+	// https://mvnrepository.com/artifact/org.fulib/fulibMockups
+	testImplementation group: 'org.fulib', name: 'fulibMockups', version: '0.4.0'
+
+	// https://mvnrepository.com/artifact/junit/junit
+	testImplementation group: 'junit', name: 'junit', version: '4.13'
+
+	// https://mvnrepository.com/artifact/org.slf4j/slf4j-nop
+	testImplementation group: 'org.slf4j', name: 'slf4j-nop', version: '1.7.30'
+
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.21.0'
+
+	testImplementation "org.testfx:testfx-core:4.0.16-alpha"
+	testImplementation "org.testfx:testfx-junit:4.0.16-alpha"
+}
+
+generateScenarioSource {
+	classDiagramSVG = true
+}
