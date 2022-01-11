@@ -100,117 +100,56 @@ public class ModelService {
                     this.game.setWinner(p.getNext());
                 }
 
-                // Also check if a player can not move anymore, if so, he lost // TODO:
-                // HAUSAUFGABE
-                if (p.getMen().stream().noneMatch(
-                        (m) -> (m.getPosition().getLeft() != null && m.getPosition().getLeft().getMan() == null) ||
-                                (m.getPosition().getRight() != null && m.getPosition().getRight().getMan() == null) ||
-                                (m.getPosition().getTop() != null && m.getPosition().getTop().getMan() == null) ||
-                                (m.getPosition().getBottom() != null
-                                        && m.getPosition().getBottom().getMan() == null))) {
-                    this.game.setWinner(p.getNext());
-                }
+                // TODO: Also check if a player can not move anymore, if so, he lost
             }
         }
     }
 
     public void nextTurn() {
-        // Set the game to the next phase // TODO: HAUSAUFGABE
-        this.game.setCurrentPlayer(this.game.getCurrentPlayer().getNext());
-
+        // TODO: Set the game to the next player
+        
+        // Check if the game is in the next phase
         this.checkNextPhase();
     }
 
     public void checkNextPhase() {
-        // Also check for to change the phase // TODO: Hausaufgabe
-        for (Player p : this.game.getPlayers()) {
-            // Only change the phase after all men are placed
-            if (p.getInitialPlacedMen() != 9) {
-                return;
-            }
-        }
+        // TODO: Only change the phase after all men are placed
 
-        if (this.game.getPhase().equals(GAME_PHASE_PLACING)) {
-            // Change the phase from "placing" to "moving" and set the player action to
-            // moving
-            this.game.setPhase(GAME_PHASE_MOVING);
-            this.game.getPlayers().forEach((p) -> p.setAction(PLAYER_ACTION_MOVING));
-        }
+        // TODO: Change the phase from "placing" to "moving" and set the player action to moving, only if the current phase is really "placing"
     }
 
     public void placeMan(Field field) {
-        // Check that this field is empty // TODO: HAUSAUFGABE
-        if (field.getMan() != null) {
-            return;
-        }
+        // TODO: Check that this field is empty
 
-        // Check that the game phase / player action is "placing"
-        if (!(this.game.getPhase().equals(GAME_PHASE_PLACING) && this.game.getCurrentPlayer().getAction().equals(PLAYER_ACTION_PLACING))) {
-            return;
-        }
+        // TODO: Check that the game phase / player action is "placing"
 
-        // Place the man
-        new Man()
-                .setOwner(this.game.getCurrentPlayer())
-                .setColor(this.game.getCurrentPlayer().getColor())
-                .setGame(this.game)
-                .setPosition(field);
+        // TODO: Place the man
 
-        // Increase the initialPlacesMen variable from the current player
-        this.game.getCurrentPlayer().setInitialPlacedMen(this.game.getCurrentPlayer().getInitialPlacedMen() + 1);
+        // TODO: Increase the initialPlacesMen variable from the current player
     }
 
     public void moveMan() {
-        // Check if a man and field are selected TODO: HAUSAUFGABE
-        if (this.currentSelectedMan == null || this.currentSelectedField == null) {
-            return;
-        }
+        // TODO: Check if a man and field are selected
 
-        // Check that the game phase and player action is "moving"
-        if (!(this.game.getPhase().equals(GAME_PHASE_MOVING) && this.game.getCurrentPlayer().getAction().equals(PLAYER_ACTION_MOVING))) {
-            return;
-        }
+        // TODO: Check that the game phase and player action is "moving"
 
-        // Move the man
-        this.currentSelectedMan.setPosition(this.currentSelectedField);
+        // TODO: Move the man
 
-        // Reset the current selected man and field
-        this.currentSelectedMan = null;
-        this.currentSelectedField = null;
+        // TODO: Reset the current selected man and field
     }
 
     public void removeMan(Man man) {
-        // Check that the man is not empty TODO: HAUSAUFGABE
-        if (man == null) {
-            return;
-        }
+        // TODO: Check that the man is not empty
 
-        // Check that the player action is "removing"
-        if (!this.game.getCurrentPlayer().getAction().equals(PLAYER_ACTION_REMOVE)) {
-            return;
-        }
+        // TODO: Check that the player action is "removing"
 
-        // Get the old owner of the man
-        Player oldOwner = man.getOwner();
+        // TODO: Get the old owner of the man
 
-        // Remove the man
-        man.removeYou();
+        // TODO: Remove the man
 
-        // Set the player action of the old owner to "flying" if the current game phase is "moving" and the player´s man are 3
-        if (this.game.getPhase().equals(GAME_PHASE_MOVING) && oldOwner.getMen().size() == 3) {
-            oldOwner.setAction(PLAYER_ACTION_FLYING);
-        }
+        // TODO: Set the player action of the old owner to "flying" if the current game phase is "moving" and the player´s man are 3
 
-        // Set the player action of the current player depending on the game phase and the number of his men
-        if (this.game.getPhase().equals(GAME_PHASE_PLACING)) {
-            this.game.getCurrentPlayer().setAction(PLAYER_ACTION_PLACING);
-        } else if (this.game.getPhase().equals(GAME_PHASE_MOVING)) {
-            if (game.getCurrentPlayer().getMen().size() > 3) {
-                this.game.getCurrentPlayer().setAction(PLAYER_ACTION_MOVING);
-            } else {
-                this.game.getCurrentPlayer().setAction(PLAYER_ACTION_FLYING);
-            }
-        }
+        // TODO: Set the player action of the current player depending on the game phase and the number of his men
     }
     
     public void checkMill(Man lastPutMan) {
@@ -219,43 +158,7 @@ public class ModelService {
     }
 
     public void checkVerticalMill(Man lastPutMan) {
-        // Also check for vertical mill // TODO: HAUSAUFGABE
-        Field currentField = lastPutMan.getPosition();
-        String currentColor = lastPutMan.getColor();
-
-        Field neighbor1 = null;
-        Field neighbor2 = null;
-
-        // Check if field of man has top and bottom neighbor
-        if (currentField.getTop() != null && currentField.getBottom() != null) {
-            neighbor1 = currentField.getTop();
-            neighbor2 = currentField.getBottom();
-        }
-
-        // Check if field of man has top neighbor with top neighbor
-        if (currentField.getTop() != null && currentField.getTop().getTop() != null) {
-            neighbor1 = currentField.getTop();
-            neighbor2 = neighbor1.getTop();
-        }
-
-        // Check if field of man has bottom neighbor with bottom neighbor
-        if (currentField.getBottom() != null && currentField.getBottom().getBottom() != null) {
-            neighbor1 = currentField.getBottom();
-            neighbor2 = neighbor1.getBottom();
-        }
-
-        if (neighbor1 == null || neighbor2 == null) {
-            return;
-        }
-
-        // Check neighbors for men and colors
-        if (neighbor1.getMan() != null
-                && neighbor1.getMan().getColor().equals(currentColor)
-                && neighbor2.getMan() != null
-                && neighbor2.getMan().getColor().equals(currentColor)) {
-            // Mill found, change man owner action to "remove"
-            lastPutMan.getOwner().setAction(PLAYER_ACTION_REMOVE);
-        }
+        // TODO: Also check for vertical mill
     }
 
     public void checkHorizontalMill(Man lastPutMan) {

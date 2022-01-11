@@ -1,5 +1,8 @@
 package de.uniks.pmws2122.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.uniks.pmws2122.StageManager;
 import de.uniks.pmws2122.model.ModelService;
 import javafx.event.ActionEvent;
@@ -14,6 +17,9 @@ public class IngameScreenController {
     private Label currentPlayerNameLabel;
     private Button giveUpButton;
 
+    // This variable is needed for the starting/stopping of the field controllers
+    private List<FieldSubController> fieldCons = new ArrayList<>();
+
     public IngameScreenController(ModelService modelService, Parent view) {
         this.modelService = modelService;
         this.view = view;
@@ -27,12 +33,15 @@ public class IngameScreenController {
         // Add action listeners
         this.giveUpButton.setOnAction(this::onGiveUpButtonPressed);
 
-        // Start game and set text for currentPlayerNameLabel
+        // TODO: Initialize field controller for the game board 
+
+        // TODO: Start game and set text for currentPlayerNameLabel, after player picked a beginner
         this.modelService.startGame(this.modelService.getGame().getPlayers().get(0));
         this.currentPlayerNameLabel.setText(modelService.getGame().getCurrentPlayer().getName());
     }
 
     public void stop() {
+        // TODO: Stop all sub controller
     }
 
     // Action listeners
