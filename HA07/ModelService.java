@@ -13,6 +13,20 @@ public class ModelService {
         return this.game;
     }
 
+    public Man getCurrentSelectedMan() {
+        return this.currentSelectedMan;
+    }
+    public void setCurrentSelectedMan(Man currentSelectedMan) {
+        this.currentSelectedMan = currentSelectedMan;
+    }
+
+    public Field getCurrentSelectedField() {
+        return this.currentSelectedField;
+    }
+    public void setCurrentSelectedField(Field currentSelectedField) {
+        this.currentSelectedField = currentSelectedField;
+    }
+
     public void buildGame(String playerNameOne, String playerNameTwo) {
         this.game = new Game().setName("Epic battle");
 
