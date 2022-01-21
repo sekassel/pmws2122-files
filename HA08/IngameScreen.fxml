@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+
+
+<VBox prefHeight="594.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="26.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <Button fx:id="giveUpButton" mnemonicParsing="false" prefHeight="47.0" text="Give up" />
+            <VBox prefHeight="200.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="5.0">
+                     <children>
+                        <Circle fx:id="currentPlayerColorDisplay" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="currentPlayerNameLabel" prefWidth="92.0" text="PLAYER NAME" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="currentPlayerActionLabel" text="action: PLAYER ACTION" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Pane prefHeight="497.0" prefWidth="508.0">
+         <children>
+            <Line endX="200.0" endY="-1.52587890625E-5" layoutX="300.0" layoutY="59.0" startX="-200.0" strokeWidth="4.0" />
+            <Line endX="200.0" endY="-1.52587890625E-5" layoutX="100.0" layoutY="259.0" rotate="90.0" startX="-200.0" strokeWidth="4.0" />
+            <Line endX="200.0" endY="-1.52587890625E-5" layoutX="300.0" layoutY="459.0" startX="-200.0" strokeWidth="4.0" />
+            <Line endX="200.0" endY="-1.52587890625E-5" layoutX="500.0" layoutY="259.0" rotate="90.0" startX="-200.0" strokeWidth="4.0" />
+            <Line endX="125.0" endY="-1.52587890625E-5" layoutX="300.0" layoutY="134.0" startX="-125.0" strokeWidth="4.0" />
+            <Line endX="125.0" endY="-1.52587890625E-5" layoutX="300.0" layoutY="384.0" startX="-125.0" strokeWidth="4.0" />
+            <Line endX="125.0" endY="-1.52587890625E-5" layoutX="175.0" layoutY="259.0" rotate="90.0" startX="-125.0" strokeWidth="4.0" />
+            <Line endX="125.0" endY="-1.52587890625E-5" layoutX="425.0" layoutY="259.0" rotate="90.0" startX="-125.0" strokeWidth="4.0" />
+            <Line endX="50.0" endY="-1.52587890625E-5" layoutX="300.0" layoutY="208.0" startX="-50.0" strokeWidth="4.0" />
+            <Line endX="50.0" endY="-1.52587890625E-5" layoutX="250.0" layoutY="259.0" rotate="90.0" startX="-50.0" strokeWidth="4.0" />
+            <Line endX="50.0" endY="-1.52587890625E-5" layoutX="300.0" layoutY="309.0" startX="-50.0" strokeWidth="4.0" />
+            <Line endX="50.0" endY="-1.52587890625E-5" layoutX="350.0" layoutY="259.0" rotate="90.0" startX="-50.0" strokeWidth="4.0" />
+            <Line endX="72.0" layoutX="178.0" layoutY="259.0" startX="-75.17156982421875" strokeWidth="4.0" />
+            <Line endX="72.0" layoutX="426.0" layoutY="259.0" startX="-75.17156982421875" strokeWidth="4.0" />
+            <Line endX="72.0" layoutX="304.0" layoutY="384.0" rotate="90.0" startX="-75.17156982421875" strokeWidth="4.0" />
+            <Line endX="72.0" layoutX="304.0" layoutY="134.0" rotate="90.0" startX="-75.17156982421875" strokeWidth="4.0" />
+            <Circle fx:id="d6FieldDisplay" layoutX="302.0" layoutY="134.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="f6FieldDisplay" layoutX="425.0" layoutY="135.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="d5FieldDisplay" layoutX="302.0" layoutY="208.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="f4FieldDisplay" layoutX="424.0" layoutY="260.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="e4FieldDisplay" layoutX="351.0" layoutY="260.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="c4FieldDisplay" layoutX="250.0" layoutY="260.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="b4FieldDisplay" layoutX="174.0" layoutY="259.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="b2FieldDisplay" layoutX="175.0" layoutY="383.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="d2FieldDisplay" layoutX="302.0" layoutY="384.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="f2FieldDisplay" layoutX="426.0" layoutY="383.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="d3FieldDisplay" layoutX="302.0" layoutY="309.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="a7FieldDisplay" layoutX="100.0" layoutY="60.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="d7FieldDisplay" layoutX="303.0" layoutY="59.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="g7FieldDisplay" layoutX="501.0" layoutY="61.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="g4FieldDisplay" layoutX="500.0" layoutY="259.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="g1FieldDisplay" layoutX="500.0" layoutY="458.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="d1FieldDisplay" layoutX="302.0" layoutY="459.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="a1FieldDisplay" layoutX="100.0" layoutY="459.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="a4FieldDisplay" layoutX="100.0" layoutY="259.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="b6FieldDisplay" layoutX="175.0" layoutY="134.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="c5FieldDisplay" layoutX="249.0" layoutY="208.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="e5FieldDisplay" layoutX="350.0" layoutY="209.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="e3FieldDisplay" layoutX="349.0" layoutY="309.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="c3FieldDisplay" layoutX="249.0" layoutY="307.0" radius="7.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Pane>
+   </children>
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+</VBox>
