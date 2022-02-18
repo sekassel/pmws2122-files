@@ -1,0 +1,142 @@
+- c: 	org.fulib.classmodel.ClassModel
+  classes: 	chatMessage 	chat 	user
+  defaultCollectionType: 	c1
+  defaultPropertyStyle: 	Bean
+  defaultRoleType: 	"java.util.ArrayList<%s>"
+  mainJavaDir: 	"src/main/java"
+  packageName: 	de.uniks.pmws2122.chat.client.model
+  packageSrcFolder: 	"src/main/java/de/uniks/pmws2122/chat/client/model"
+
+- chatMessage: 	org.fulib.classmodel.Clazz
+  attributes: 	chatMessage_from 	chatMessage_msg
+  model: 	c
+  modified: 	false
+  name: 	ChatMessage
+  propertyStyle: 	Bean
+  roles: 	chatMessage_chat 	chatMessage_sender
+
+- chat: 	org.fulib.classmodel.Clazz
+  attributes: 	chat_currentNickname
+  model: 	c
+  modified: 	false
+  name: 	Chat
+  propertyStyle: 	Bean
+  roles: 	chat_allMessages 	chat_onlineUser
+
+- user: 	org.fulib.classmodel.Clazz
+  attributes: 	user_name
+  model: 	c
+  modified: 	false
+  name: 	User
+  propertyStyle: 	Bean
+  roles: 	user_messages 	user_chat
+
+- c1: 	org.fulib.classmodel.CollectionType
+  implClass: 	class java.util.ArrayList
+  implTemplate: 	"java.util.ArrayList<%s>"
+  itf: 	org.fulib.classmodel.CollectionInterface.List
+  qualifiedImplName: 	java.util.ArrayList
+  simpleImplName: 	ArrayList
+
+- chatMessage_from: 	org.fulib.classmodel.Attribute
+  clazz: 	chatMessage
+  id: 	ChatMessage_from
+  modified: 	false
+  name: 	from
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- chatMessage_msg: 	org.fulib.classmodel.Attribute
+  clazz: 	chatMessage
+  id: 	ChatMessage_msg
+  modified: 	false
+  name: 	msg
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- chatMessage_chat: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	chatMessage
+  id: 	ChatMessage_chat
+  modified: 	false
+  name: 	chat
+  other: 	chat_allMessages
+  propertyStyle: 	Bean
+
+- chatMessage_sender: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	chatMessage
+  id: 	ChatMessage_sender
+  modified: 	false
+  name: 	sender
+  other: 	user_messages
+  propertyStyle: 	Bean
+
+- chat_currentNickname: 	org.fulib.classmodel.Attribute
+  clazz: 	chat
+  id: 	Chat_currentNickname
+  modified: 	false
+  name: 	currentNickname
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- chat_allMessages: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	chat
+  collectionType: 	c1
+  id: 	Chat_allMessages
+  modified: 	false
+  name: 	allMessages
+  other: 	chatMessage_chat
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- chat_onlineUser: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	chat
+  collectionType: 	c1
+  id: 	Chat_onlineUser
+  modified: 	false
+  name: 	onlineUser
+  other: 	user_chat
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- user_name: 	org.fulib.classmodel.Attribute
+  clazz: 	user
+  id: 	User_name
+  modified: 	false
+  name: 	name
+  propertyStyle: 	Bean
+  type: 	String
+  typeSignature: 	String
+
+- user_messages: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	42
+  clazz: 	user
+  collectionType: 	c1
+  id: 	User_messages
+  modified: 	false
+  name: 	messages
+  other: 	chatMessage_sender
+  propertyStyle: 	Bean
+  roleType: 	"java.util.ArrayList<%s>"
+
+- user_chat: 	org.fulib.classmodel.AssocRole
+  aggregation: 	false
+  cardinality: 	1
+  clazz: 	user
+  id: 	User_chat
+  modified: 	false
+  name: 	chat
+  other: 	chat_onlineUser
+  propertyStyle: 	Bean
+
