@@ -8,7 +8,7 @@ public class Constants {
 
     // Network
     public static final String BASE_URL = "https://icp.uniks.de";   // http://localhost:3000 for local development with a local server instance
-    public static final String WS_URL = "wss://icp.uniks.de";       // http://localhost:3000 for local development with a local server instance
+    public static final String WS_URL = "wss://icp.uniks.de";       // ws://localhost:3000 for local development with a local server instance
 
     public static final String API_PREFIX = "/api";
     public static final String WS_PREFIX = "/ws";
